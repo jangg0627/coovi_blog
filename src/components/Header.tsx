@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center p-4 border-b">
       {/* flex: 요소를 플렉스 컨테이너로 지정  👉 display: flex */}
       {/* justify-between: 요소 사이에 공간을 두고 정렬  👉 justify-content: space-between */}
       {/* items-center: 요소를 수직/수평 중앙으로 정렬  👉 align-items: center */}

@@ -25,10 +25,7 @@ export default function RootLayout({
         {/* max-w-screen-2xl: 요소의 최대 너비를 1536px으로 지정  👉 max-width: 1536px */}
         {/* mx-auto: 요소를 수평 가운데로 정렬  👉 margin-left: auto, margin-right: auto */}
         <Header />
-        <main className="grow bg-sky-400">
-          {/* bg-sky-400: 배경색을 하늘색으로 지정  👉 background-color: #87ceeb */}
-          {children}
-        </main>
+        <main className="grow">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,0 +1,18 @@
+import { getNonFeaturedPosts } from "@/service/posts";
+import MultiCarousel from "./MultiCarousel";
+import PostCard from "./PostCard";
+
+export default async function CarouselPosts() {
+  const posts = await getNonFeaturedPosts();
+
+  return (
+    <section className="my-2">
+      <h2 className="font-bold text-2xl my-2">You May Like</h2>
+      <MultiCarousel>
+        {posts.map((post) => {
+          return <PostCard key={post.path} post={post} />;
+        })}
+      </MultiCarousel>
+    </section>
+  );
+}

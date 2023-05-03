@@ -25,7 +25,7 @@ export default function FilterablePosts({ posts, categories }: Props) {
   // }
 
   return (
-    <section>
+    <section className="flex m-4">
       <PostsGrid posts={filteredPosts} />
       <Categories
         categories={[ALL_POSTS, ...categories]}

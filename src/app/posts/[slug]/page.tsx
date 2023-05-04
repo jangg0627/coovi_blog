@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { getPostData } from "@/service/posts";
 import PostContent from "@/components/PostContent";
+import AdjacentPostCard from "@/components/AdjacentPostCard";
 
 type Props = {
   params: { slug: string };
@@ -22,8 +23,8 @@ export default async function Page({ params: { slug } }: Props) {
       />
       <PostContent post={post} />
       <section>
-        {prevPost && <p>{prevPost.title}</p>}
-        {nextPost && <p>{nextPost.title}</p>}
+        {prevPost && <AdjacentPostCard post={prevPost} type={"prev"} />}
+        {nextPost && <AdjacentPostCard post={nextPost} type={"next"} />}
       </section>
     </article>
   );

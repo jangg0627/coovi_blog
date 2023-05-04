@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import MarkdownViewer from "@/components/MarkdownViewer";
 import { getPostData } from "@/service/posts";
+import { AiTwotoneCalendar } from "react-icons/ai";
 
 type Props = {
   params: { slug: string };
@@ -19,7 +20,10 @@ export default async function Page({ params: { slug } }: Props) {
         height={420}
       />
       <section>
-        <p>{date.toString()}</p>
+        <div>
+          <AiTwotoneCalendar />
+          <p>{date.toString()}</p>
+        </div>
         <h1>{title}</h1>
         <p>{description}</p>
         <MarkdownViewer content={content} />;

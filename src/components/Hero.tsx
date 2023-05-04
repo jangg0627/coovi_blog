@@ -13,7 +13,7 @@ export default function Hero() {
           priority
         />
       </div>
-      <h2 className="text-3xl font-bold">Hi, I'm Coovi</h2>
+      <h2 className="text-3xl font-bold mt-2">Hi, I'm Coovi</h2>
       <h3 className="text-xl font-semibold">프론트엔드 엔지니어</h3>
       <p>성장하는 개발자 쿠비입니다.</p>
       <Link href="/contact">

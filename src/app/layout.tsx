@@ -12,8 +12,6 @@ export const metadata = {
   description: "성장하는 개발자 Coovi 입니다.",
 };
 
-const navList = ["About", "Posts", "Contact"];
-
 export default function RootLayout({
   children,
 }: {

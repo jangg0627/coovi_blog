@@ -1,6 +1,6 @@
+import fs from "fs";
 import path from "path";
-import { readFile } from "fs/promises";
-// import { promises as fs } from "fs";
+import matter from "gray-matter";
 
 export type Post = {
   title: string;
@@ -9,38 +9,53 @@ export type Post = {
   category: string;
   path: string;
   featured: boolean;
+  content: string;
 };
 
 export type PostData = Post & {
-  content: string;
   nextPost: Post | null;
   prevPost: Post | null;
 };
-// 🎯&: TS 타입 결합에 쓰이는 기호🎯
-// Post 타입에 content 속성을 추가해서 새로운 타입 생성
+
+const postsDirectory = path.join(process.cwd(), "data", "posts");
 
 export async function getAllPosts(): Promise<Post[]> {
-  const filePath = path.join(process.cwd(), "data", "posts.json");
-  // const data = await fs.readFile(filePath, "utf-8");
-  // const posts = JSON.parse(data);
-  // return posts.sort((a: Post, b: Post) => (a.date > b.date ? -1 : 1));
-  return readFile(filePath, "utf-8")
-    .then<Post[]>(JSON.parse)
-    .then((posts) => posts.sort((a, b) => (a.date > b.date ? -1 : 1)));
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames.map((fileName) => {
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+
+    const matterOptions = {
+      engines: {
+        yaml: (s: string) =>
+          require("js-yaml").load(s, {
+            schema: require("js-yaml").JSON_SCHEMA,
+          }),
+      },
+    };
+
+    const { data, content } = matter(fileContents, matterOptions);
+
+    return {
+      ...data,
+      content,
+    } as Post;
+  });
+
+  return allPostsData.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
 export async function getFeaturedPosts(): Promise<Post[]> {
-  // const posts = await getAllPosts();
-  // return posts.filter((post) => post.featured);
-  return getAllPosts().then((posts) => posts.filter((post) => post.featured));
+  const allPosts = await getAllPosts();
+  return allPosts.filter((post) => post.featured);
 }
 
 export async function getNonFeaturedPosts(): Promise<Post[]> {
-  return getAllPosts().then((posts) => posts.filter((post) => !post.featured));
+  const allPosts = await getAllPosts();
+  return allPosts.filter((post) => !post.featured);
 }
 
 export async function getPostData(fileName: string): Promise<PostData> {
-  const filePath = path.join(process.cwd(), "data", "posts", `${fileName}.md`);
   const allPosts = await getAllPosts();
   const currentPost = allPosts.find((post) => post.path === fileName);
   if (!currentPost) {
@@ -52,7 +67,5 @@ export async function getPostData(fileName: string): Promise<PostData> {
   const prevPost =
     currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
-  const content = await readFile(filePath, "utf-8");
-
-  return { ...currentPost, content, nextPost, prevPost };
+  return { ...currentPost, nextPost, prevPost };
 }

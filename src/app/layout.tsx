@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={sans.className} lang="en">
-      <body className="flex flex-col w-full max-w-screen-2xl mx-auto">
+    <html className={`${sans.className} h-screen`} lang="en">
+      <body className="flex flex-col w-full max-w-screen-2xl mx-auto min-h-screen overflow-y-auto">
         {/* max-w-screen-2xl: 요소의 최대 너비를 1536px으로 지정  👉 max-width: 1536px */}
         {/* mx-auto: 요소를 수평 가운데로 정렬  👉 margin-left: auto, margin-right: auto */}
         <Header />

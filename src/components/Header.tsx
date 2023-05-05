@@ -11,7 +11,7 @@ export default function Header() {
         <h1 className="text-3xl font-bold">
           {/* text-3xl: 글자 크기를 1.875rem으로 설정  👉 font-size: 1.875rem (30px) */}
           {/* font-bold: 글꼴을 굵게 설정 👉 font-weight: bold */}
-          Coovi's Blog
+          {"Coovi's Blog"}
         </h1>
       </Link>
       <nav className="flex gap-4">

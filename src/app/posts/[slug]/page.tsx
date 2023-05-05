@@ -22,7 +22,7 @@ export default async function Page({ params: { slug } }: Props) {
         height={420}
       />
       <PostContent post={post} />
-      <section>
+      <section className="flex shadow-md">
         {prevPost && <AdjacentPostCard post={prevPost} type={"prev"} />}
         {nextPost && <AdjacentPostCard post={nextPost} type={"next"} />}
       </section>

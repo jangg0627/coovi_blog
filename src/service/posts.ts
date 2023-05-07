@@ -6,7 +6,7 @@ export type Post = {
   title: string;
   description: string;
   date: string;
-  category: string;
+  categories: string[];
   path: string;
   featured: boolean;
   content: string;

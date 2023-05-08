@@ -18,7 +18,9 @@ export default function FilterablePosts({ posts, categories }: Props) {
   const filteredPosts =
     selected === ALL_POSTS
       ? posts
-      : posts.filter((post) => post.category === selected);
+      : posts.filter((post) =>
+          post.categories.map((category) => category === selected)
+        );
 
   // function handleClick(selected: string) {
   //   setSelected(selected);

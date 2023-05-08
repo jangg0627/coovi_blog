@@ -8,6 +8,7 @@ export type Post = {
   date: string;
   categories: string[];
   path: string;
+  unsplashThumbnail: string;
   featured: boolean;
   content: string;
 };

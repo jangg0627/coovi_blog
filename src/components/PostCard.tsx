@@ -6,14 +6,14 @@ import { Post } from "@/service/posts";
 type Props = { post: Post };
 
 export default function PostCard({
-  post: { title, description, date, categories, path },
+  post: { title, description, date, categories, path, unsplashThumbnail },
 }: Props) {
   return (
     <Link href={`/posts/${path}`}>
       <article className="rounded-md overflow-hidden shadow-lg">
         <Image
           className="w-full"
-          src={`/images/posts/${path}.png`}
+          src={unsplashThumbnail}
           alt={title}
           width={300}
           height={200}

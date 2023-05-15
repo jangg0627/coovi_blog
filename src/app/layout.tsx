@@ -10,6 +10,7 @@ export const metadata = {
   title: "Coovi's Blog",
   description: "성장하는 개발자 Coovi 입니다.",
   other: {
+    "google-site-verification": "6pGD24xImh6iZ_plFFU0AOeDyq5uU_lzXeRxFGJgg1I",
     "naver-site-verification": "ae3019a4a55e894820a644adc60ff9b5762ca566",
   },
 };

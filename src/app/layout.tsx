@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
-import Link from "next/link";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,6 +9,9 @@ const sans = Open_Sans({ subsets: ["latin"] });
 export const metadata = {
   title: "Coovi's Blog",
   description: "성장하는 개발자 Coovi 입니다.",
+  other: {
+    "naver-site-verification": "ae3019a4a55e894820a644adc60ff9b5762ca566",
+  },
 };
 
 export default function RootLayout({

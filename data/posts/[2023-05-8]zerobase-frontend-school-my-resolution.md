@@ -1,7 +1,7 @@
 ---
 title: 제로베이스 프론트엔드 스쿨
 description: 제로베이스 프론트엔드 스쿨과 나의 다짐, 목표에 대해
-date: 2023-05-8
+date: "2023-05-8"
 categories:
   - Zero-base
   - My Story

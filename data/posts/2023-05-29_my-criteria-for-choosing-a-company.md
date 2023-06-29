@@ -1,7 +1,7 @@
 ---
 title: 내가 가고 싶은 회사에 대해
 description: 내가 회사를 선택하는 기준
-date: 2023-05-29
+date: "2023-05-29"
 categories:
   - Zero-base
 path: my-criteria-for-choosing-a-company

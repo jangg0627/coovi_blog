@@ -1,7 +1,7 @@
 ---
 title: 내가 생각하는 프론트엔드 개발이란?
 description: 내가 생각하는 프론트엔드, 프론트와 백엔드의 차이점
-date: 2023-05-25
+date: "2023-05-25"
 categories:
   - Zero-base
 path: frontend-that-i-think

@@ -1,11 +1,22 @@
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote";
 
+// import Hero from "@/components/Hero";
+
 type MdxContentProps = {
   source: MDXRemoteSerializeResult;
 };
 
+const components = {
+  // Hero,
+  // h1: (props: any) => (
+  //   <h1 {...props} className="text-red-600 large-text">
+  //     {props.children}
+  //   </h1>
+  // ),
+};
+
 export function MdxContent({ source }: MdxContentProps) {
-  return <MDXRemote {...source} />;
+  return <MDXRemote {...source} components={components} />;
 }
 
 // import Link from "next/link";

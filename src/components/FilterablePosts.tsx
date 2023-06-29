@@ -19,7 +19,7 @@ export default function FilterablePosts({ posts, categories }: Props) {
     selected === ALL_POSTS
       ? posts
       : posts.filter((post) =>
-          post.categories.map((category) => category === selected)
+          post.categories.some((category) => category === selected)
         );
 
   // function handleClick(selected: string) {

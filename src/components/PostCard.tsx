@@ -26,14 +26,15 @@ export default function PostCard({
           </h3>
           <p className="w-full text-center truncate">{description}</p>
           <div>
-            {categories.map((category) => (
-              <span
-                key={category}
-                className="px-2 mx-1 my-2 text-sm bg-green-200 rounded-lg"
-              >
-                {category}
-              </span>
-            ))}
+            {categories &&
+              categories.map((category) => (
+                <span
+                  key={category}
+                  className="px-2 mx-1 my-2 text-sm bg-green-200 rounded-lg"
+                >
+                  {category}
+                </span>
+              ))}
           </div>
         </div>
       </article>

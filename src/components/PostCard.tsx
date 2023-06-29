@@ -20,7 +20,7 @@ export default function PostCard({
           />
         </div>
         <div className="flex flex-col items-center p-2">
-          <time className="self-end text-xs">{date.toString()}</time>
+          <time className="self-end text-xs">{date}</time>
           <h3 className="w-full text-lg font-bold text-center truncate">
             {title}
           </h3>

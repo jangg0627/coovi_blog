@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     appDir: true,
+    mdxRs: true,
   },
+
   images: {
     remotePatterns: [
       {
@@ -11,6 +15,7 @@ const nextConfig = {
       },
     ],
   },
+
 };
 
 module.exports = nextConfig;

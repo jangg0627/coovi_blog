@@ -1,8 +1,22 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 
-export type Post = {
+import { serialize } from "next-mdx-remote/serialize";
+import { type MDXRemoteSerializeResult } from "next-mdx-remote";
+import remarkGfm from "remark-gfm";
+
+// export type Post = {
+//   title: string;
+//   description: string;
+//   date: string;
+//   categories: string[];
+//   path: string;
+//   unsplashThumbnail: string;
+//   featured: boolean;
+//   content: string;
+// };
+
+export type Frontmatter = {
   title: string;
   description: string;
   date: string;
@@ -10,7 +24,10 @@ export type Post = {
   path: string;
   unsplashThumbnail: string;
   featured: boolean;
-  content: string;
+};
+
+export type Post = Frontmatter & {
+  content: MDXRemoteSerializeResult;
 };
 
 export type PostData = Post & {
@@ -21,28 +38,30 @@ export type PostData = Post & {
 const postsDirectory = path.join(process.cwd(), "data", "posts");
 
 export async function getAllPosts(): Promise<Post[]> {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileNames = await fs.promises.readdir(postsDirectory);
 
-    const matterOptions = {
-      engines: {
-        yaml: (s: string) =>
-          require("js-yaml").load(s, {
-            schema: require("js-yaml").JSON_SCHEMA,
-          }),
-      },
-    };
+  const allPostsData = await Promise.all(
+    fileNames.map(async (fileName) => {
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContent = await fs.promises.readFile(fullPath, "utf8");
 
-    const { data, content } = matter(fileContents, matterOptions);
+      // const { data, content } = matter(fileContents);
 
-    return {
-      ...data,
-      content,
-    } as Post;
-  });
+      const serialized = await serialize(fileContent, {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+      });
 
+      const frontmatter = serialized.frontmatter as Frontmatter;
+
+      return {
+        ...frontmatter,
+        content: serialized,
+      };
+    })
+  );
   return allPostsData.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 

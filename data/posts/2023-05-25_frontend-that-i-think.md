@@ -6,7 +6,7 @@ categories:
   - Zero-base
 path: frontend-that-i-think
 unsplashThumbnail: https://images.unsplash.com/photo-1529101091764-c3526daf38fe?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZ3JhbW1pbmcsZnJvbnRlbmQsYmFja2VuZHx8fHx8fDE2ODQ5OTI4MDY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
-featured: true
+featured: false
 ---
 
 ## 내가 생각하는 프론트엔드 개발

@@ -6,8 +6,8 @@ categories:
   - Zero-base
   - My Story
 path: first-month-of-zerobase
-unsplashThumbnail: "/images/[2023-05-31]first-month-of-zerobase/zerobase-opengraph.png"
-featured: true
+unsplashThumbnail: "/images/post/2023-05-31_first-month-of-zerobase/zerobase-opengraph.png"
+featured: false
 ---
 
 어느덧 프론트엔드 스쿨에 합류한 지 한 달이 지났고 그동안 나는 놀랍게도 여전히 매일 강의, 진도와 혈투(?)를 벌이고 있다.  

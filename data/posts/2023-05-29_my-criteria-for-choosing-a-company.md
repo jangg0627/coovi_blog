@@ -6,7 +6,7 @@ categories:
   - Zero-base
 path: my-criteria-for-choosing-a-company
 unsplashThumbnail: https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8b2ZmaWNlLHdvcmtwbGFjZSxkZWNpc2lvbi1tYWtpbmd8fHx8fHwxNjg1MzQ4Njky&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600
-featured: true
+featured: false
 ---
 
 ## 내가 회사를 선택하는 기준

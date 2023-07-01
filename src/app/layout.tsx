@@ -4,6 +4,8 @@ import { Open_Sans } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+
 const sans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,7 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <html className={`${sans.className} h-screen`} lang="en">
-      <body className="flex flex-col w-full max-w-screen-2xl mx-auto min-h-screen overflow-y-auto">
+      <GoogleAnalytics GA_TRACKING_ID={"G-GZJ3T27Z0V"} />
+      <body className="flex flex-col w-full min-h-screen mx-auto overflow-y-auto max-w-screen-2xl">
         {/* max-w-screen-2xl: 요소의 최대 너비를 1536px으로 지정  👉 max-width: 1536px */}
         {/* mx-auto: 요소를 수평 가운데로 정렬  👉 margin-left: auto, margin-right: auto */}
         <Header />
